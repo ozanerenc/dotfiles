@@ -16,18 +16,14 @@
 # alias rm='rm -i'
 # alias cp='cp -i'
 # alias mv='mv -i'
+export PATH=$PATH:/usr/games
 PS1='\[\e[38;5;75m\]\u\[\e[0m\]@\[\e[38;5;99m\]\H\[\e[0m\]:# '
-star="\e[5;33m*\e[0m\e[1;32m"
-o="\e[0m\e[1;31mo\e[0m\e[1;32m"
+figlet -c "ozaneren" | lolcat
+echo " "
+export PS1="\[\e[32m\]\u\[\e[m\]@\[\e[31m\]\h\[\e[m\]:# "
+function nonzero_return() {
+	RETVAL=$?
+	[ $RETVAL -ne 0 ] && echo "$RETVAL"
+}
 
-echo -e "
-                        ${star}
-                       /.\\
-                      /${o}..\\
-                      /..${o}\\
-                     /.${o}..${o}\\
-                     /...${o}.\\
-                    /..${o}....\\
-                     ^^[_]^^
-"
-export PS1="\[\e[32m\]\u\[\e[m\]@\[\e[31m\]\h\[\e[m\]:# "
+export PS1="\[\e[36m\][\[\e[m\]\[\e[31m\]\`nonzero_return\`\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[32m\]ozaneren\[\e[m\]@\[\e[36m\][\[\e[m\]\[\e[34m\]datacenter\[\e[m\]\[\e[34m\]/\[\e[m\]\[\e[34m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[32m\] ->\[\e[m\] "
